@@ -22,6 +22,10 @@ jobs:
         dotnet-version: 7.0.x
     - name: Publicar web en local
       run: dotnet publish -c Release -o publish
+      
+    - name: copy index.html to 404.html
+      run: cp ./publish/wwwroot/index.html ./publish/wwwroot/404.html
+      
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
